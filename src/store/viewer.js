@@ -1,6 +1,7 @@
 // @flow
 import {observable, computed, reaction} from 'mobx'
 import storage, {type Storage} from '../service/storage'
+import currentImage, {type CurrentImage} from './currentImage'
 import viewSize, {type ViewSize} from './viewSize'
 import route, {type Route} from './route'
 
@@ -16,11 +17,16 @@ export class Viewer {
   @observable resize: boolean;
   @observable sidePanel: boolean;
 
-  constructor(storage: Storage, viewSize: ViewSize, route: Route) {
+  constructor(
+      storage: Storage,
+      viewSize: ViewSize,
+      route: Route
+      currentImage: CurrentImage) {
     this.storage = storage
 
     this.viewSize = viewSize
     this.route = route
+    this.currentImage = currentImage
 
     this.resize = storage.load('resize', true)
     this.sidePanel = storage.load('sidePanel', false)
@@ -54,4 +60,4 @@ export class Viewer {
   }
 }
 
-export default new Viewer(storage, viewSize, route)
+export default new Viewer(storage, viewSize, route, currentImage)

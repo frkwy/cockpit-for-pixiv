@@ -56,6 +56,7 @@ export class ViewerUseCase {
   }
 
   handleChange = (illust: Illust) => {
+    this.viewer.currentImage.reset(illust)
     if (this.viewer.sidePanel || this.editor.opened) {
       this.load(illust)
     }
