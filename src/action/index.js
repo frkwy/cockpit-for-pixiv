@@ -6,6 +6,7 @@ import toggleFit from './toggleFit'
 import toggleSidePanel from './toggleSidePanel'
 // illust
 import toggleEditor from './toggleEditor'
+import fastBookmark from './fastBookmark'
 import likeIt from './likeIt'
 import share from './share'
 import donwload from './download'
@@ -26,3 +27,5 @@ command.register(share)
 command.register(donwload)
 
 command.register(toggleHelp)
+
+command.register(fastBookmark)
